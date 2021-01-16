@@ -1,0 +1,23 @@
+// Multiple RO Txs test case
+// read only transactions
+log Multi_ROTxs.log
+// op	Tx#	type
+// op	Tx#	Obj
+BeginTx 1 R
+Read 1 1
+Read 1 2
+Read 1 3
+Read 1 8
+BeginTx 2 R
+Read 2 1
+Read 2 8
+Read 2 5
+BeginTx 3 R
+Read 3 1
+Read 3 5
+Read 3 3
+read 3 7
+Commit 2
+commit 3
+Commit 1
+end all

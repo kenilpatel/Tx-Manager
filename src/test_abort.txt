@@ -1,0 +1,21 @@
+// simple deadlock test case
+// Two write transactions
+log test_abort.log
+// op	Tx#	type
+// op	Tx#	Obj
+BeginTx 1 W
+read 1 6
+write 1 7
+write 1 7
+read 1 6
+begintx 2 W
+read 2 8
+write 2 7
+abort 2
+begintx 3 R
+read 3 4
+write 3 5
+read 3 9
+commit 3
+commit 1
+end all

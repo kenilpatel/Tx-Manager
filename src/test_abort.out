@@ -1,0 +1,180 @@
+
+Initializing the TM
+
+leaving TM initialization
+// simple deadlock test case
+// simple deadlock test case
+// Two write transactions
+// Two write transactions
+log test_abort.log
+Log file name:test_abort.log
+
+entering openlog
+
+Given log file name: (null)
+leaving openlog
+// op	Tx#	type
+// op	Tx#	type
+// op	Tx#	Obj
+// op	Tx#	Obj
+BeginTx 1 W
+BeginTx : 1
+
+TxType : W
+
+
+creating BeginTx thread for Tx: 1
+
+finished creating BeginTx thread for Tx: 1
+read 1 6
+Read : 1 : 6
+
+
+creating TxRead thread for Tx: 1
+read done 1 6
+
+exiting TxRead thread create for Tx: 1
+write 1 7
+Write : 1 : 7
+
+
+creating TxRead thread for Tx: 1
+
+exiting TxRead thread create for Tx: 1
+write 1 7
+Write : 1 : 7
+
+
+creating TxRead thread for Tx: 1
+
+exiting TxRead thread create for Tx: 1
+read 1 6
+Read : 1 : 6
+
+
+creating TxRead thread for Tx: 1
+
+exiting TxRead thread create for Tx: 1
+begintx 2 W
+BeginTx : 2
+
+TxType : W
+
+
+creating BeginTx thread for Tx: 2
+
+finished creating BeginTx thread for Tx: 2
+read 2 8
+Read : 2 : 8
+
+
+creating TxRead thread for Tx: 2
+
+exiting TxRead thread create for Tx: 2
+write 2 7
+Write : 2 : 7
+
+
+creating TxRead thread for Tx: 2
+
+exiting TxRead thread create for Tx: 2
+abort 2
+Abort : 2
+
+
+creating TxRead thread for Tx: 2
+read done 2 8
+
+exiting TxRead thread create for Tx: 2
+begintx 3 R
+BeginTx : 3
+
+TxType : R
+
+
+creating BeginTx thread for Tx: 3
+
+finished creating BeginTx thread for Tx: 3
+read 3 4
+Read : 3 : 4
+
+
+creating TxRead thread for Tx: 3
+
+exiting TxRead thread create for Tx: 3
+write 3 5
+Write : 3 : 5
+
+
+creating TxRead thread for Tx: 3
+
+exiting TxRead thread create for Tx: 3
+read 3 9
+Read : 3 : 9
+
+
+creating TxRead thread for Tx: 3
+
+exiting TxRead thread create for Tx: 3
+commit 3
+Commit : 3
+
+
+creating TxRead thread for Tx: 3
+
+exiting TxRead thread create for Tx: 3
+commit 1
+Commit : 3
+
+
+creating TxRead thread for Tx: 1
+
+exiting TxRead thread create for Tx: 1
+end all
+Release all resources and exit:
+
+
+Entering End of schedule thread with thrNum: 15
+Wait for threads and cleanup
+Thread 0 completed with ret value: 0
+read done 3 4
+read done 2 7
+
+:::Hash node with Tid:2, obno:7 lockmode:X removed
+
+:::Hash node with Tid:2, obno:8 lockmode:S removed
+read done 3 5
+read done 1 7
+Thread 1 completed with ret value: 0
+read done 3 9
+read done 1 7
+Thread 2 completed with ret value: 0
+
+:::Hash node with Tid:3, obno:9 lockmode:S removed
+
+:::Hash node with Tid:3, obno:5 lockmode:X removed
+
+:::Hash node with Tid:3, obno:4 lockmode:S removed
+read done 1 6
+Thread 3 completed with ret value: 0
+
+:::Hash node with Tid:1, obno:7 lockmode:X removed
+
+:::Hash node with Tid:1, obno:6 lockmode:S removed
+Thread 4 completed with ret value: 0
+Thread 5 completed with ret value: 0
+Thread 6 completed with ret value: 0
+Thread 7 completed with ret value: 0
+Thread 8 completed with ret value: 0
+Thread 9 completed with ret value: 0
+Thread 10 completed with ret value: 0
+Thread 11 completed with ret value: 0
+Thread 12 completed with ret value: 0
+Thread 13 completed with ret value: 0
+Thread 14 completed with ret value: 0
+ALL threads finished their work
+Releasing mutexes and condpool
+Releasing all semaphores
+endTm completed
+
+Finished end of schedule thread: endTm

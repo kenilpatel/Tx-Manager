@@ -1,0 +1,133 @@
+
+Initializing the TM
+
+leaving TM initialization
+// possible deadlock test case
+// possible deadlock test case
+// Two write transactions
+// Two write transactions
+log ddlk_3Tx.log
+Log file name:ddlk_3Tx.log
+
+entering openlog
+
+Given log file name: (null)
+leaving openlog
+// op	Tx#	type
+// op	Tx#	type
+BeginTx 1 W
+BeginTx : 1
+
+TxType : W
+
+
+creating BeginTx thread for Tx: 1
+
+finished creating BeginTx thread for Tx: 1
+// op	Tx#	Obj
+// op	Tx#	Obj
+Read 1 1
+Read : 1 : 1
+
+
+creating TxRead thread for Tx: 1
+
+exiting TxRead thread create for Tx: 1
+Write 1 2
+Write : 1 : 2
+
+
+creating TxRead thread for Tx: 1
+
+exiting TxRead thread create for Tx: 1
+Read 1 6
+Read : 1 : 6
+
+
+creating TxRead thread for Tx: 1
+
+exiting TxRead thread create for Tx: 1
+BeginTx 2 W
+BeginTx : 2
+
+TxType : W
+
+
+creating BeginTx thread for Tx: 2
+
+finished creating BeginTx thread for Tx: 2
+Read 2 2
+Read : 2 : 2
+
+
+creating TxRead thread for Tx: 2
+
+exiting TxRead thread create for Tx: 2
+Write 2 1
+Write : 2 : 1
+
+
+creating TxRead thread for Tx: 2
+read done 1 1
+
+exiting TxRead thread create for Tx: 2
+read done Read 2 7
+2 2
+Read : 2 : 7
+
+
+creating TxRead thread for Tx: 2
+
+exiting TxRead thread create for Tx: 2
+commit 2
+Commit : 2
+
+
+creating TxRead thread for Tx: 2
+
+exiting TxRead thread create for Tx: 2
+Commit 1
+Commit : 2
+
+
+creating TxRead thread for Tx: 1
+
+exiting TxRead thread create for Tx: 1
+begintx 3 R
+BeginTx : 3
+
+TxType : R
+
+
+creating BeginTx thread for Tx: 3
+
+finished creating BeginTx thread for Tx: 3
+read 3 2
+Read : 3 : 2
+
+
+creating TxRead thread for Tx: 3
+
+exiting TxRead thread create for Tx: 3
+write 3 1
+Write : 3 : 1
+
+
+creating TxRead thread for Tx: 3
+
+exiting TxRead thread create for Tx: 3
+read 3 2
+Read : 3 : 2
+
+
+creating TxRead thread for Tx: 3
+
+exiting TxRead thread create for Tx: 3
+end all
+Release all resources and exit:
+
+
+Entering End of schedule thread with thrNum: 14
+Wait for threads and cleanup
+Thread 0 completed with ret value: 0
+Thread 1 completed with ret value: 0

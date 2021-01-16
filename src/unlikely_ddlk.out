@@ -1,0 +1,136 @@
+
+Initializing the TM
+
+leaving TM initialization
+// serializable history
+// serializable history
+// ddlk unlikely
+// ddlk unlikely
+log unlikely_ddlk.log
+Log file name:unlikely_ddlk.log
+
+entering openlog
+
+Given log file name: (null)
+leaving openlog
+BeginTx 1 W
+BeginTx : 1
+
+TxType : W
+
+
+creating BeginTx thread for Tx: 1
+
+finished creating BeginTx thread for Tx: 1
+Read    1 3
+Read : 1 : 3
+
+
+creating TxRead thread for Tx: 1
+read done 1 3
+
+exiting TxRead thread create for Tx: 1
+Read    1 2
+Read : 1 : 2
+
+
+creating TxRead thread for Tx: 1
+
+exiting TxRead thread create for Tx: 1
+BeginTx 2 W
+BeginTx : 2
+
+TxType : W
+
+
+creating BeginTx thread for Tx: 2
+
+finished creating BeginTx thread for Tx: 2
+Read    2 1
+Read : 2 : 1
+
+
+creating TxRead thread for Tx: 2
+
+exiting TxRead thread create for Tx: 2
+Write   2 3
+Write : 2 : 3
+
+
+creating TxRead thread for Tx: 2
+
+exiting TxRead thread create for Tx: 2
+Write   1 3
+Write : 1 : 3
+
+
+creating TxRead thread for Tx: 1
+
+exiting TxRead thread create for Tx: 1
+Write   1 2
+Write : 1 : 2
+
+
+creating TxRead thread for Tx: 1
+
+exiting TxRead thread create for Tx: 1
+Write   2 2
+Write : 2 : 2
+
+
+creating TxRead thread for Tx: 2
+read done 1 2
+read done 2 1
+read done 1 3
+read done 1 2
+
+exiting TxRead thread create for Tx: 2
+Commit  1
+Commit : 2
+
+
+creating TxRead thread for Tx: 1
+
+exiting TxRead thread create for Tx: 1
+commit 2
+Commit : 1
+
+
+creating TxRead thread for Tx: 2
+
+exiting TxRead thread create for Tx: 2
+end all
+Release all resources and exit:
+
+
+Entering End of schedule thread with thrNum: 11
+Wait for threads and cleanup
+Thread 0 completed with ret value: 0
+Thread 1 completed with ret value: 0
+Thread 2 completed with ret value: 0
+Thread 3 completed with ret value: 0
+Thread 4 completed with ret value: 0
+
+:::Hash node with Tid:1, obno:2 lockmode:S removed
+
+:::Hash node with Tid:1, obno:3 lockmode:S removed
+read done 2 3
+read done 2 2
+
+:::Hash node with Tid:2, obno:2 lockmode:X removed
+
+:::Hash node with Tid:2, obno:3 lockmode:X removed
+
+:::Hash node with Tid:2, obno:1 lockmode:S removed
+Thread 5 completed with ret value: 0
+Thread 6 completed with ret value: 0
+Thread 7 completed with ret value: 0
+Thread 8 completed with ret value: 0
+Thread 9 completed with ret value: 0
+Thread 10 completed with ret value: 0
+ALL threads finished their work
+Releasing mutexes and condpool
+Releasing all semaphores
+endTm completed
+
+Finished end of schedule thread: endTm

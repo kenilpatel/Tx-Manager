@@ -1,0 +1,89 @@
+
+Initializing the TM
+
+leaving TM initialization
+// 2 transactions
+// 2 transactions
+// classic deadlock
+// classic deadlock
+// will hang w/o deadlock resolution
+// will hang w/o deadlock resolution
+Log ddlk_2Tx.log
+Log file name:ddlk_2Tx.log
+
+entering openlog
+
+Given log file name: (null)
+leaving openlog
+BeginTx 1 W
+BeginTx : 1
+
+TxType : W
+
+
+creating BeginTx thread for Tx: 1
+
+finished creating BeginTx thread for Tx: 1
+BeginTx 2 W
+BeginTx : 2
+
+TxType : W
+
+
+creating BeginTx thread for Tx: 2
+
+finished creating BeginTx thread for Tx: 2
+Read    1 1
+Read : 1 : 1
+
+
+creating TxRead thread for Tx: 1
+
+exiting TxRead thread create for Tx: 1
+Read    2 2
+Read : 2 : 2
+
+
+creating TxRead thread for Tx: 2
+
+exiting TxRead thread create for Tx: 2
+Write   1 2
+Write : 1 : 2
+
+
+creating TxRead thread for Tx: 1
+
+exiting TxRead thread create for Tx: 1
+Write   2 1
+Write : 2 : 1
+
+
+creating TxRead thread for Tx: 2
+
+exiting TxRead thread create for Tx: 2
+Commit  1
+Commit : 2
+
+
+creating TxRead thread for Tx: 1
+read done 1 1
+read done 2 2
+
+exiting TxRead thread create for Tx: 1
+commit 2
+Commit : 1
+
+
+creating TxRead thread for Tx: 2
+
+exiting TxRead thread create for Tx: 2
+end all
+Release all resources and exit:
+
+
+Entering End of schedule thread with thrNum: 8
+Wait for threads and cleanup
+Thread 0 completed with ret value: 0
+Thread 1 completed with ret value: 0
+Thread 2 completed with ret value: 0
+Thread 3 completed with ret value: 0

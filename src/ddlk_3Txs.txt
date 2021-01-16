@@ -1,0 +1,20 @@
+// possible deadlock test case
+// Two write transactions
+log ddlk_3Tx.log
+// op	Tx#	type
+BeginTx 1 W
+// op	Tx#	Obj
+Read 1 1
+Write 1 2
+Read 1 6
+BeginTx 2 W
+Read 2 2
+Write 2 1
+Read 2 7
+commit 2
+Commit 1
+begintx 3 R
+read 3 2
+write 3 1
+read 3 2
+end all

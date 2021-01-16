@@ -1,0 +1,19 @@
+log interleaved_RW.log
+BeginTx 1 W
+Read 1 1
+Write 1 2
+Read 1 3
+Write 1 4
+BeginTx 2 W
+Write 2 8
+Write 2 2
+Read 2 1
+BeginTx 3 W
+Write 3 1
+Write 3 2
+Write 3 9
+Read 3 8
+Commit 1
+commit 2
+Commit 3
+end all
